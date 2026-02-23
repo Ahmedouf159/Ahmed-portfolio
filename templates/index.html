@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- HERO -->
+<section class="hero" data-reveal>
+  <div class="hero-left">
+    <h1 class="hero-title">Ahmed Web & Backend Developer</h1>
+
+    <p class="hero-sub">
+      Young developer building real programs for web and desktop using Python and modern technologies.
+    </p>
+
+    <p class="hero-desc">
+      Hello, my name is Ahmed. I enjoy building web apps and backend systems.
+      I believe programming is the future and I love learning new things every day.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="/signup" class="btn primary">Sign up</a>
+      <a href="/login" class="btn">Login</a>
+      <a href="#projects" class="btn outline">View Projects</a>
+    </div>
+
+    <div class="tech">
+      Python • Flask • SQL • HTML • CSS • JavaScript
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I BUILD -->
+<section class="section" data-reveal>
+  <h2>What I’m Building</h2>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>Web Apps</h3>
+      <p>Login systems, dashboards, full websites.</p>
+    </div>
+
+    <div class="card">
+      <h3>Backend Systems</h3>
+      <p>Flask APIs, authentication, databases.</p>
+    </div>
+
+    <div class="card">
+      <h3>Automation</h3>
+      <p>Python tools for real tasks and workflows.</p>
+    </div>
+  </div>
+
+  <p class="center small">From Egypt • Started 2024 • 12+ Projects</p>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="projects" data-reveal>
+  <h2>Portfolio Gallery</h2>
+  <p class="section-sub">Screenshots + description for each project.</p>
+
+  <div class="grid-3">
+    <div class="project-card">
+      <h3>Web Calculator</h3>
+      <p>Fast calculator with clean UI and keyboard support.</p>
+      <a href="#" class="btn small">View</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Restaurant App</h3>
+      <p>Menu + cart system built with Flask and SQL.</p>
+      <a href="#" class="btn small">View</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Python + Excel Tools</h3>
+      <p>Automation scripts for Excel tasks.</p>
+      <a href="#" class="btn small">View</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" data-reveal>
+  <h2>Blog</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>How I started coding (2024)</h3>
+      <p>I began with small programs then moved to web development.</p>
+    </div>
+
+    <div class="card">
+      <h3>Why I like Python</h3>
+      <p>Python is simple, powerful, and perfect for web + automation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" data-reveal>
+  <h2>Testimonials</h2>
+  <div class="grid-3">
+    <div class="card">“Ahmed learns fast and builds real projects.”</div>
+    <div class="card">“Creative developer with strong logic skills.”</div>
+    <div class="card">“Keeps improving and loves challenges.”</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" data-reveal>
+  <h2>FAQ</h2>
+
+  <details>
+    <summary>Why do you like programming?</summary>
+    <p>Because it allows me to build real tools and solve real problems.</p>
+  </details>
+
+  <details>
+    <summary>Favorite language?</summary>
+    <p>Python — clean, powerful, and versatile.</p>
+  </details>
+
+  <details>
+    <summary>Future goal?</summary>
+    <p>Build advanced systems and intelligent software.</p>
+  </details>
+</section>
+
+{% endblock %}

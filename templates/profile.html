@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% set title = "Profile" %}
+{% block content %}
+
+<section class="section">
+  <div class="container">
+    <div class="sectionHead" data-reveal>
+      <h2>Profile</h2>
+      <p class="muted">This is your account info. You can change username.</p>
+    </div>
+
+    <div class="cards2">
+      <div class="card" data-reveal>
+        <h3>Account details</h3>
+        <p><strong>Username:</strong> {{ current_user.username }}</p>
+        <p><strong>Email:</strong> {{ current_user.email }}</p>
+        <p class="muted small">Avatar letter in header = first letter of username (lowercase).</p>
+      </div>
+
+      <div class="card" data-reveal>
+        <h3>Edit username</h3>
+        <form method="POST" class="form">
+          <label class="label">New username</label>
+          <input class="input" name="username" value="{{ current_user.username }}" required>
+          <button class="btn btn--primary" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

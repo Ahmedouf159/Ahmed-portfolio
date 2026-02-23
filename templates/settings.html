@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="glass hero-card reveal" style="max-width:760px;margin:0 auto;">
+      <div class="badge"><img class="icon" src="{{ url_for('static', filename='assets/menu-dots-vertical.png') }}" alt=""> Settings</div>
+      <h1 style="margin-top:12px;">Preferences</h1>
+      <p class="big-paragraph">Theme is saved in SQL per user and applied on all pages.</p>
+
+      <div class="field" style="margin-top:12px;">
+        <label>Theme</label>
+        <select id="themeSelect">
+          <option value="system" {% if theme == "system" %}selected{% endif %}>System</option>
+          <option value="dark" {% if theme == "dark" %}selected{% endif %}>Dark</option>
+          <option value="light" {% if theme == "light" %}selected{% endif %}>Light</option>
+        </select>
+        <div class="inline-help">System follows Windows preference (light/dark).</div>
+      </div>
+
+      <div class="notice warning" style="margin-top:12px;">
+        Premium ideas later: font size, reduce motion, layout density, logout all devices.
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

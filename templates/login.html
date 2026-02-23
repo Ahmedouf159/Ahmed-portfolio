@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set title = "Login" %}
+{% block content %}
+
+<section class="auth">
+  <div class="container auth__grid">
+    <div class="auth__left" data-reveal>
+      <h1 class="auth__title">Welcome back 👋</h1>
+      <p class="muted">Login to open your dashboard and show your avatar letter in the header.</p>
+    </div>
+
+    <div class="authCard" data-reveal>
+      <form method="POST" class="form">
+        <label class="label">Username or Email</label>
+        <input class="input" name="identity" placeholder="ahmed or ahmed@email.com" required>
+
+        <label class="label">Password</label>
+        <div class="passRow">
+          <input class="input" id="loginPass" name="password" type="password" placeholder="••••••••" required>
+          <button class="iconSmall" type="button" data-toggle-pass="loginPass" aria-label="Show/Hide password">👁</button>
+        </div>
+
+        <label class="checkRow">
+          <input type="checkbox" name="remember">
+          <span>Remember me</span>
+        </label>
+
+        <button class="btn btn--primary w100" type="submit">Login</button>
+
+        <p class="muted small center">
+          Don’t have an account? <a class="link" href="{{ url_for('signup') }}">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

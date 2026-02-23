@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% set title = "Ahmed | About" %}
+
+{% block content %}
+<section class="pageTop">
+  <div class="container" data-reveal>
+    <h1 class="pageTitle">About Me</h1>
+    <p class="pageSub">
+      I’m Ahmed — a young developer from Egypt who loves building real projects and learning every day.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card" data-reveal>
+      <h2>My story</h2>
+      <p>
+        I am Ahmed, a passionate young developer from Egypt. I started learning programming in 2024 and I enjoy building
+        real software projects instead of only studying theory. I like backend development and creating useful apps that solve problems.
+      </p>
+      <p>
+        Python is my favorite language because it is powerful and flexible. I build web apps and tools using Python and I also work with
+        HTML, CSS, JavaScript, Flask, and SQL. I’m interested in robotics and future technologies, and I hope to build intelligent systems one day.
+      </p>
+      <p class="muted small">
+        Note: This portfolio is personal and independent — no company names, only real work.
+      </p>
+    </div>
+
+    <div class="cards2">
+      <div class="card" data-reveal>
+        <h3>Skills</h3>
+        <div class="skillGrid">
+          <span class="pill">Python</span>
+          <span class="pill">Flask</span>
+          <span class="pill">SQL</span>
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">AI Basics</span>
+        </div>
+      </div>
+
+      <div class="card" data-reveal>
+        <h3>Goals</h3>
+        <ul class="list">
+          <li>Build more advanced web apps with login and database.</li>
+          <li>Improve UI/UX and make websites fast on mobile.</li>
+          <li>Learn robotics and AI step by step.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="dashWrap">
+  <div class="dashTop">
+    <div>
+      <h1 class="dashH1">Dashboard</h1>
+      <p class="dashSub muted">
+        Welcome back, <strong>{{ current_user.username }}</strong>. Here’s your quick overview.
+      </p>
+    </div>
+
+    <div class="dashActions">
+      <a class="btn btn--ghost" href="{{ url_for('profile') }}">Profile</a>
+      <a class="btn btn--primary1" href="{{ url_for('index') }}#projects">View Projects</a>
+    </div>
+  </div>
+
+  <!-- Quick stats -->
+  <div class="dashGrid">
+    <div class="dashCard">
+      <div class="dashCard__top">
+        <span class="dashIconBadge">⚡</span>
+        <span class="dashLabel muted">Projects</span>
+      </div>
+      <div class="dashValue">12+</div>
+      <div class="dashHint muted small">Real apps & tools built since 2024</div>
+    </div>
+
+    <div class="dashCard">
+      <div class="dashCard__top">
+        <span class="dashIconBadge">🧠</span>
+        <span class="dashLabel muted">Skills</span>
+      </div>
+      <div class="dashValue">Python • Flask</div>
+      <div class="dashHint muted small">SQL • HTML • CSS • JavaScript</div>
+    </div>
+
+    <div class="dashCard">
+      <div class="dashCard__top">
+        <span class="dashIconBadge">✅</span>
+        <span class="dashLabel muted">Status</span>
+      </div>
+      <div class="dashValue">Active</div>
+      <div class="dashHint muted small">Learning + shipping updates weekly</div>
+    </div>
+  </div>
+
+  <!-- Main panels -->
+  <div class="dashPanels">
+    <div class="dashPanel">
+      <div class="dashPanel__head">
+        <h2 class="dashH2">Quick Links</h2>
+        <span class="muted small">Fast navigation</span>
+      </div>
+
+      <div class="dashLinks">
+        <a class="dashLink" href="{{ url_for('index') }}">
+          <span>🏠</span><span>Home</span>
+        </a>
+        <a class="dashLink" href="{{ url_for('about') }}">
+          <span>👤</span><span>About</span>
+        </a>
+        <a class="dashLink" href="{{ url_for('services') }}">
+          <span>🧰</span><span>Services</span>
+        </a>
+        <a class="dashLink" href="{{ url_for('profile') }}">
+          <span>⚙️</span><span>Profile</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="dashPanel">
+      <div class="dashPanel__head">
+        <h2 class="dashH2">Next Steps</h2>
+        <span class="muted small">Ideas to improve your portfolio</span>
+      </div>
+
+      <ul class="dashList">
+        <li>Add 1 screenshot per project (Gallery cards)</li>
+        <li>Create a “Projects” page (each project has details)</li>
+        <li>Add contact buttons (Email / GitHub / LinkedIn)</li>
+        <li>Write 1 blog post per week (short & simple)</li>
+      </ul>
+
+      <div class="dashNote">
+        <strong>Tip:</strong> Keep projects small but complete. Finish > perfect.
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

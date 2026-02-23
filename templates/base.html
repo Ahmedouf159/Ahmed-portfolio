@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title if title else "Ahmed" }}</title>
+
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/favicon-32x32.png') }}">
+
+  <!-- ✅ Apply saved theme BEFORE CSS loads -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark" || saved === "light") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body class="site">
+
+<header class="header" id="top">
+  <div class="container header__inner">
+
+    <a class="brand" href="{{ url_for('index') }}">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__name">Ahmed</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a class="nav__link" href="{{ url_for('index') }}">Home</a>
+      <a class="nav__link" href="{{ url_for('about') }}">About</a>
+      <a class="nav__link" href="{{ url_for('services') }}">Services</a>
+
+      {% if current_user %}
+        <a class="nav__link" href="{{ url_for('dashboard') }}">Dashboard</a>
+      {% endif %}
+    </nav>
+
+    <div class="header__actions">
+      <button class="btn btn--ghost themeToggle" id="themeToggle" type="button" aria-label="Toggle theme">
+        <span class="themeToggle__sun">☀️</span>
+        <span class="themeToggle__moon">🌙</span>
+      </button>
+
+      {% if current_user %}
+        <div class="dropWrap">
+          <button class="iconBtn" id="dotsBtn" type="button" aria-label="More">
+            <img src="{{ url_for('static', filename='assets/menu-dots-vertical.png') }}" alt="More">
+          </button>
+          <div class="dropdown" id="dotsMenu" aria-hidden="true">
+            <a class="ddItem" href="{{ url_for('profile') }}">Profile</a>
+            <a class="ddItem" href="{{ url_for('blog') }}">Blog</a>
+          </div>
+        </div>
+
+        <div class="dropWrap">
+          <button class="avatarBtn" id="avatarBtn" type="button" aria-label="Account">
+            <span class="avatarLetter">{{ avatar_letter }}</span>
+          </button>
+          <div class="dropdown" id="avatarMenu" aria-hidden="true">
+            <div class="ddHeader">
+              <div class="ddName">{{ current_user.username }}</div>
+              <div class="ddEmail">{{ current_user.email }}</div>
+            </div>
+            <a class="ddItem" href="{{ url_for('profile') }}">Profile</a>
+            <a class="ddItem" href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </div>
+      {% else %}
+        <a class="btn btn--ghost" href="{{ url_for('login') }}">Login</a>
+        <a class="btn btn--primary1" href="{{ url_for('signup') }}">Sign up</a>
+      {% endif %}
+
+      <!-- ✅ correct id -->
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+        <img src="{{ url_for('static', filename='assets/menu-burger.png') }}" alt="Menu">
+      </button>
+    </div>
+  </div>
+
+  <!-- ✅ Mobile menu (ONLY pages + close button) -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="mobileMenu__panel">
+      <div class="mobileMenu__top">
+        <span class="mobileMenu__title">Pages</span>
+        <button class="mobileClose" id="closeMenu" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div class="mobileMenu__links">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('services') }}">Services</a>
+
+        {% if current_user %}
+          <a href="{{ url_for('dashboard') }}">Dashboard</a>
+          <a href="{{ url_for('profile') }}">Profile</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+          <a href="{{ url_for('login') }}">Login</a>
+          <a href="{{ url_for('signup') }}">Sign up</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flashWrap">
+          {% for category, msg in messages %}
+            <div class="flash flash--{{ category }}">{{ msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__col">
+      <div class="footer__brand">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <strong>Ahmed</strong>
+      </div>
+      <p class="muted">Personal portfolio website.</p>
+    </div>
+
+    <div class="footer__col">
+      <strong class="footer__title">Links</strong>
+      <div class="footer__links">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('services') }}">Services</a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <strong class="footer__title">Social</strong>
+      <div class="footer__social">
+        <a class="socialBtn" href="#" aria-label="YouTube">
+          <img src="{{ url_for('static', filename='assets/youtube.png') }}" alt="YouTube">
+        </a>
+        <a class="socialBtn" href="#" aria-label="Facebook">
+          <img src="{{ url_for('static', filename='assets/facebook.png') }}" alt="Facebook">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <span class="muted small">© <span id="year"></span> Ahmed</span>
+  </div>
+</footer>
+
+<button class="toTop" id="toTop" type="button" aria-label="Back to top">↑</button>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

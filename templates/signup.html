@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% set title = "Sign up" %}
+{% block content %}
+
+<section class="auth">
+  <div class="container auth__grid">
+    <div class="auth__left" data-reveal>
+      <h1 class="auth__title">Create your account ✨</h1>
+      <p class="muted">After signup, login and you will see your letter (avatar) in the header.</p>
+    </div>
+
+    <div class="authCard" data-reveal>
+      <form method="POST" class="form">
+        <label class="label">Username</label>
+        <input class="input" name="username" placeholder="Ahmed" required>
+
+        <label class="label">Email</label>
+        <input class="input" name="email" type="email" placeholder="ahmed@email.com" required>
+
+        <label class="label">Password</label>
+        <div class="passRow">
+          <input class="input" id="signPass" name="password" type="password" placeholder="min 6 chars" required>
+          <button class="iconSmall" type="button" data-toggle-pass="signPass" aria-label="Show/Hide password">👁</button>
+        </div>
+
+        <label class="label">Confirm Password</label>
+        <div class="passRow">
+          <input class="input" id="signPass2" name="confirm_password" type="password" placeholder="repeat password" required>
+          <button class="iconSmall" type="button" data-toggle-pass="signPass2" aria-label="Show/Hide password">👁</button>
+        </div>
+
+        <button class="btn btn--primary w100" type="submit">Create account</button>
+
+        <p class="muted small center">
+          Already have an account? <a class="link" href="{{ url_for('login') }}">Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
